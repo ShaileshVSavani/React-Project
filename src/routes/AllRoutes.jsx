@@ -54,6 +54,7 @@ import Profile from "../pages/Profile";
 import Users from "../pages/Users";
 import AddProduct from "../pages/Add Product";
 import PrivateRoute from "./privateRoute";
+import Blog from "../pages/Blog";
 
 
 
@@ -138,6 +139,7 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+        <Route path="/blog" element ={<PrivateRoute><Blog/></PrivateRoute>}/>
         {/* Fallback for 404 Not Found */}
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

@@ -666,10 +666,10 @@ const NavaBar = () => {
               Shop
             </Link>
             <Link
-              to="/product"
+              to="/blog"
               className="hover:text-gray-900 transition-colors duration-300"
             >
-              Add Product
+              Blog
             </Link>
             <Link
               to="/about"

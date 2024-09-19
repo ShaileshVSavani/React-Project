@@ -366,7 +366,7 @@ const [searchTerm, setSearchTerm] = useState("");
                         <img
                           src={item.img}
                           alt={item.title}
-                          className="rounded-3xl"
+                          className="rounded-3xl hover:scale-105 duration-500"
                         />
                       </div>
                       <div className="opacity-0 absolute top-0 right-0 m-4">

@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeading from '../common/PageHeading'
 
-const NotFoundPage = () => {
+const AboutUs = () => {
   return (
     <div>
       <PageHeading home={"home"} pagename={"AboutUs"} />
@@ -9,4 +9,4 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
+export default AboutUs

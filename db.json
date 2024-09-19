@@ -7,7 +7,7 @@
       "category": "Best Sell",
       "img": "https://res.cloudinary.com/dl8hsmer2/image/upload/v1726634682/krr1mywobcx2zqy6imye.jpg",
       "brand": "Old Brand",
-      "short_description": "Lorem ipsum dolor",
+      "short_description": "Lorem ipsum dolorr",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit"
     },
     {
@@ -161,8 +161,5 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit"
     }
   ],
-
-    "users": [
- 
-  ]
+  "users": []
 }
