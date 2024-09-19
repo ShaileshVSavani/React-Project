@@ -52,16 +52,6 @@ const BestSeller = () => {
     setIsModalOpenWishList(null);
   };
 
-  // var settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-  //   prevArrow: <IoIosArrowRoundBack />,
-  //   nextArrow: <IoIosArrowRoundForward />,
-  // };
   // Custom previous arrow component
   const PrevArrow = ({ onClick }) => (
     <div

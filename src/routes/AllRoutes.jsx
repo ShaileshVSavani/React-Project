@@ -56,8 +56,6 @@ import AddProduct from "../pages/Add Product";
 import PrivateRoute from "./privateRoute";
 import Blog from "../pages/Blog";
 
-
-
 const AllRoutes = () => {
   return (
     <div>
@@ -139,7 +137,14 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
-        <Route path="/blog" element ={<PrivateRoute><Blog/></PrivateRoute>}/>
+        <Route
+          path="/blog"
+          element={
+            <PrivateRoute>
+              <Blog />
+            </PrivateRoute>
+          }
+        />
         {/* Fallback for 404 Not Found */}
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
