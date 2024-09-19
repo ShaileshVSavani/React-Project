@@ -258,8 +258,8 @@
 
 
 
+//====================================================================
 
-//======================================================
 
 
 import React, { useEffect, useState } from "react";
@@ -268,7 +268,7 @@ import PageHeading from "../common/PageHeading";
 import Modal from "../common/Modal";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { IoMdHeartEmpty, IoMdSearch } from "react-icons/io";
+import { IoMdHeartEmpty } from "react-icons/io";
 import { BiCart } from "react-icons/bi";
 import { getProducts } from "../redux/productSlice";
 import ModalWishList from "../common/ModalWishList";
@@ -322,7 +322,6 @@ const Shop = () => {
     if (price < filters.priceRange[0] || price > filters.priceRange[1])
       return false;
 
-    // Search filter
     if (searchTerm && !product.title.toLowerCase().includes(searchTerm.toLowerCase()))
       return false;
 
@@ -357,61 +356,69 @@ const Shop = () => {
   }
 
   return (
-    <div className="p-4 md:p-8 lg:p-12">
+    <div>
       <PageHeading home={"home"} pagename={"Shop"} />
-      <div className="flex flex-col md:flex-row gap-6 mt-8">
-        <div className="filterproduct bg-white shadow-lg p-4 md:w-1/4 rounded-lg">
+      <div className="w-full md:w-11/12 m-auto flex flex-col md:flex-row gap-4 md:gap-8 mt-8">
+        <div className="filterproduct w-full md:w-1/4 bg-white shadow-lg p-4">
           <div>
-            <h1 className="text-2xl md:text-4xl font-semibold mb-4">Filter</h1>
-            <div className="mb-4">
-              <h2 className="text-xl md:text-3xl font-semibold mb-3">By Price</h2>
-              <Slider
-                min={0}
-                max={1500}
-                range
-                defaultValue={filters.priceRange}
-                onChange={handlePriceChange}
-                className="mb-2"
-              />
-              <div className="flex justify-between text-sm md:text-base">
-                <span>Min Price: ${filters.priceRange[0]}</span>
-                <span>Max Price: ${filters.priceRange[1]}</span>
+            <div className="my-4">
+              <h1 className="text-3xl md:text-4xl font-semibold">Filter</h1>
+              <hr />
+            </div>
+
+            <div className="my-4">
+              <h1 className="mb-3 text-2xl md:text-3xl font-semibold">By Price</h1>
+              <div>
+                <Slider
+                  min={0}
+                  max={1500}
+                  range
+                  defaultValue={filters.priceRange}
+                  onChange={handlePriceChange}
+                />
+                <div className="flex justify-between text-sm md:text-base">
+                  <span>Min Price: ${filters.priceRange[0]}</span>
+                  <span>Max Price: ${filters.priceRange[1]}</span>
+                </div>
               </div>
             </div>
-            <div className="mb-4">
-              <h2 className="text-xl md:text-3xl font-semibold mb-3">By Category</h2>
+
+            <div className="my-4">
+              <h1 className="mb-3 text-2xl md:text-3xl font-semibold">By Category</h1>
               <div>
                 {categoryList.map((category, key) => (
-                  <div className="flex items-center mb-2" key={key}>
+                  <div className="flex items-center" key={key}>
                     <input
                       type="checkbox"
                       checked={filters.categories.includes(category)}
-                      onChange={() => handleCheckboxChange("categories", category)}
-                      className="mr-2"
+                      onChange={() =>
+                        handleCheckboxChange("categories", category)
+                      }
                     />
-                    <span>{category}</span>
+                    <div className="mx-2">{category}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="mb-4">
-              <h2 className="text-xl md:text-3xl font-semibold mb-3">By Brand</h2>
+
+            <div className="my-4">
+              <h1 className="mb-3 text-2xl md:text-3xl font-semibold">By Brand</h1>
               <div>
                 {brandList.map((brand, key) => (
-                  <div className="flex items-center mb-2" key={key}>
+                  <div className="flex items-center" key={key}>
                     <input
                       type="checkbox"
                       checked={filters.brands.includes(brand)}
                       onChange={() => handleCheckboxChange("brands", brand)}
-                      className="mr-2"
                     />
-                    <span>{brand}</span>
+                    <div className="mx-2">{brand}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="mb-4">
-              <h2 className="text-xl md:text-3xl font-semibold mb-2">By Search</h2>
+
+            <div className="flex flex-col mb-4">
+              <h1 className="text-2xl md:text-3xl font-semibold mb-2">By Search</h1>
               <input
                 type="text"
                 value={searchTerm}
@@ -423,42 +430,51 @@ const Shop = () => {
           </div>
         </div>
 
-        <div className="flex-1">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="w-full md:w-3/4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {filteredProducts.map((item) => (
-              <div key={item.id} className="relative bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-48 object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute top-4 right-4 flex flex-col gap-2">
-                    <button
-                      className="bg-white p-2 rounded-full shadow-lg"
-                      onClick={() => handleOpenWishList(item.id)}
-                    >
-                      <IoMdHeartEmpty size={20} />
-                    </button>
-                    <button
-                      className="bg-white p-2 rounded-full shadow-lg"
-                      onClick={() => handleOpen(item.id)}
-                    >
-                      <BiCart size={20} />
-                    </button>
+              <div key={item.id} className="overflow-hidden relative">
+                <div className="image-container relative">
+                  <div className="rounded-3xl">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="rounded-3xl hover:scale-105 duration-500 w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div className="opacity-0 absolute top-0 right-0 m-4 group-hover:opacity-100 transition-opacity duration-300">
+                    <div>
+                      <div className="bg-white p-2 rounded-full shadow mb-2">
+                        <button
+                          className="text-2xl"
+                          onClick={() => handleOpenWishList(item.id)}
+                        >
+                          <IoMdHeartEmpty size={20} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="opacity-0 absolute bottom-0 right-0 m-4 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-black text-white h-10 w-10 grid place-items-center rounded-full">
+                      <button
+                        className="text-2xl"
+                        onClick={() => handleOpen(item.id)}
+                      >
+                        <BiCart />
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p>${item.price}</p>
+                <div className="product-details mt-2 text-center">
+                  <p className="mb-2 text-lg">{item.title}</p>
+                  <p className="text-xl">${item.price}</p>
                 </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Modals */}
       <Modal
         data={products.find((item) => item.id === isModalOpen)}
         isModalOpen={isModalOpen}
@@ -485,3 +501,7 @@ const Shop = () => {
 };
 
 export default Shop;
+
+
+
+
