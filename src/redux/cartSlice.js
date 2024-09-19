@@ -3,7 +3,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // Thunk to fetch initial cart data from the db.json
-const API_BASE_URL = "https://react-project-json-server.onrender.com/product";
+const API_BASE_URL = "https://json-server-react-project.onrender.com";
 export const fetchCartData = createAsyncThunk("cart/fetchCartData", async () => {
   const response = await fetch(`${API_BASE_URL}/cart`); // Assuming 'cart' is the key in db.json
   const data = await response.json();
