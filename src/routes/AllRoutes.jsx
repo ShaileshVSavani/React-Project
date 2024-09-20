@@ -55,6 +55,9 @@ import Users from "../pages/Users";
 import AddProduct from "../pages/Add Product";
 import PrivateRoute from "./privateRoute";
 import Blog from "../pages/Blog";
+import Checkout from "../pages/Checkout";
+import OrderConfirmation from "../pages/OrdorConfirmation";
+import OrderDetails from "../pages/OrderDetail";
 
 const AllRoutes = () => {
   return (
@@ -142,6 +145,30 @@ const AllRoutes = () => {
           element={
             <PrivateRoute>
               <Blog />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/orderconfirmation"
+          element={
+            <PrivateRoute>
+              <OrderConfirmation />
+            </PrivateRoute>
+          }
+        />
+           <Route
+          path="/orderDetail"
+          element={
+            <PrivateRoute>
+              <OrderDetails />
             </PrivateRoute>
           }
         />

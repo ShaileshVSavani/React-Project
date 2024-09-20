@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const baseUrl = "https://json-server-react-project.onrender.com";
+// const baseUrl = "http://localhost:3000";
 
 // Fetch all products
 export const getProducts = createAsyncThunk("/product", async () => {
